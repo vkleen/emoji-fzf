@@ -16,18 +16,17 @@ fn main() {
 }
 
 fn display_emoji(name: &str) {
-    for emoji in emojis::EMOJIS {
-        if name == emoji.0 {
-            // Output without trailing newline
-            print!("{}", emoji.1);
-            std::process::exit(0);
-        }
+    if let Some(emoji) = emojis::EMOJI_MAP.get(name) {
+        print!("{}", emoji.emoji);
+        std::process::exit(0);
     }
     std::process::exit(1);
 }
 
 fn preview_emojis() {
-    for emoji in emojis::EMOJIS {
-        println!("{}", emoji.0);
+    for (key, emoji) in emojis::EMOJI_MAP.entries() {
+        println!("{}\t{} {}", key, emoji.description,
+                 emoji.tags.join(" ")
+                );
     }
 }
