@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "Generate emoji input for fzf";
 
   inputs = {
     nixpkgs.url = "github:vkleen/nixpkgs/master";
@@ -7,14 +7,35 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    crate2nix = {
+      url = "github:kolloch/crate2nix";
+      flake = false;
+    };
     flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = inputs@{ self, ... }: inputs.flake-utils.lib.eachDefaultSystem (system:
     let
-      overlays = [ (import inputs.rust-overlay) ];
+      name = "emoji-fzf";
+
+      overlays =
+        [ (import inputs.rust-overlay)
+          (final: prev: {
+            rustc = final.rust-bin.nightly.latest.default;
+            cargo = final.rust-bin.nightly.latest.default;
+          })
+        ];
       pkgs = import inputs.nixpkgs { inherit system overlays; };
-    in with pkgs; {
+
+      inherit (import "${inputs.crate2nix}/tools.nix" { inherit pkgs; })
+        generatedCargoNix;
+      
+      project = import (generatedCargoNix { inherit name; src = ./.; })
+                  { inherit pkgs; };
+    in with pkgs; rec {
+      packages.${name} = project.rootCrate.build;
+      defaultPackage = packages.${name};
+      
       devShell = mkShell {
         buildInputs = [
           openssl pkgconfig

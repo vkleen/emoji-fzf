@@ -12,9 +12,9 @@ version = "0.0.0"
 [dependencies]
 atty = "0.2"
 structopt = "0.3"
-phf = { git = "https://github.com/rust-phf/rust-phf", features = ["macros"] }
+phf = "0.10"
 
 [build_dependencies]
-phf_codegen = { git = "https://github.com/rust-phf/rust-phf" }
+phf_codegen = "0.10"
 serde = { version = "1.0", features = ["derive"] }
 serde_json  = "1.0"

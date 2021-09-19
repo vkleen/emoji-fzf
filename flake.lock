@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "crate2nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1631874825,
+        "narHash": "sha256-VvsIUwCKL+3+wWuN0GLMVlmVM8EUEIvjXvWXYmq6y0w=",
+        "owner": "kolloch",
+        "repo": "crate2nix",
+        "rev": "27c980cf339a2d1e9256156b86f765364512f134",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kolloch",
+        "repo": "crate2nix",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1631561581,
@@ -48,6 +64,7 @@
     },
     "root": {
       "inputs": {
+        "crate2nix": "crate2nix",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "rust-overlay": "rust-overlay"
