@@ -48,18 +48,19 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1631823271,
-        "narHash": "sha256-NR9oCM0ogdia0S1k1MCjq0wSKWFDDLUVuDczIJ6XsLs=",
-        "owner": "vkleen",
+        "host": "git.sr.ht.kleen.org",
+        "lastModified": 1647958136,
+        "narHash": "sha256-xhk8qtipMq2zHBZ2q/obien+grcRmFD8KV0jjjwdP/U=",
+        "owner": "~vkleen",
         "repo": "nixpkgs",
-        "rev": "398a813677e40bf8ba73c2346c70f0128dc18986",
-        "type": "github"
+        "rev": "c4233257cffb6d0ec07865260bb0b896753d8e21",
+        "type": "sourcehut"
       },
       "original": {
-        "owner": "vkleen",
-        "ref": "master",
+        "host": "git.sr.ht.kleen.org",
+        "owner": "~vkleen",
         "repo": "nixpkgs",
-        "type": "github"
+        "type": "sourcehut"
       }
     },
     "root": {

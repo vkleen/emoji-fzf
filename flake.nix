@@ -2,7 +2,7 @@
   description = "Generate emoji input for fzf";
 
   inputs = {
-    nixpkgs.url = "github:vkleen/nixpkgs/master";
+    nixpkgs.url = sourcehut:~vkleen/nixpkgs?host=git.sr.ht.kleen.org;
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
