@@ -1,3 +1,5 @@
+#![feature(iter_intersperse)]
+
 use std::env;
 use std::fs::File;
 use std::io::{BufWriter, BufReader, Write};
